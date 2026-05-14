@@ -1,0 +1,134 @@
+benchmark_root: benchmarks/comb45
+work_dir: work_comb45_h20_op9
+data_dir: data_comb45_h20_op9
+result_dir: results_comb45_h20_op9
+models_dir: models/checkpoints_comb45_h20_op9
+train_circuits:
+- c432
+- c499
+- c880
+- c1908
+- c2670
+- c5315
+- c6288
+- alu2
+- alu4
+- apex6
+- c8
+- cc
+- cht
+- cm150a
+- cm151a
+- cm152a
+- cm162a
+- cmb
+- comp
+- cordic
+- count
+- cu
+- dalu
+- frg1
+- frg2
+- k2
+- lal
+- pcler8
+- rot
+- tcon
+- term1
+- z4ml
+test_circuits:
+- c1355
+- c3540
+- c7552
+- apex7
+- cm138a
+- cm163a
+- decod
+- des
+- pair
+- parity
+- pm1
+- t481
+- vda
+horizon: 20
+gamma: 1.0
+actions:
+- name: rewrite
+  abc_cmd: rewrite
+- name: rewrite_z
+  abc_cmd: rewrite -z
+- name: balance
+  abc_cmd: balance
+- name: refactor
+  abc_cmd: refactor
+- name: refactor_z
+  abc_cmd: refactor -z
+- name: resub
+  abc_cmd: resub
+- name: resub_z
+  abc_cmd: resub -z
+- name: replace_rw_p_q
+  abc_cmd: replace;rw -p -q
+- name: replace_rf_p
+  abc_cmd: replace;rf -p
+abc_binary: ../build2/abc
+mapping_lib: ../asap7_clean.lib
+hpwl_flow_template: scripts/abc_hpwl_flow.tcl
+hpwl_mode: and_nf_put_replace
+seed: 0
+model:
+  feature_dim: 15
+  hidden_dim: 256
+  num_layers: 2
+  activation: leaky_relu
+  ensemble_size: 5
+offline:
+  reward_epochs: 1000
+  value_epochs: 2000
+  q_epochs: 1000
+  batch_size: 32
+  lr: 0.0003
+  use_normalized_targets: true
+  loss: huber
+  huber_delta: 1.0
+online:
+  episodes: 192
+  epsilon_start: 0.3
+  epsilon_end: 0.05
+  beta_start: 1.0
+  beta_end: 0.2
+  rho: 0.01
+  lambda_online: 0.5
+  update_epochs_per_episode: 5
+  update_reward_model: false
+evaluation:
+  deterministic: true
+ablation:
+  no_uncertainty: false
+  no_near_greedy_filter: false
+  d1_greedy_only: false
+  immediate_reward_only: false
+awac:
+  lambda: 1.0
+iql:
+  beta: 3.0
+  expectile: 0.7
+cql:
+  alpha: 1.0
+experiment:
+  seeds:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  include_train_round_budgets: true
+  budgets:
+  - 0
+  - 10
+  - 50
+  methods:
+  - gso2o
+  - awac
+  - iql
+  - cql

@@ -1,0 +1,30 @@
+SRC +=  src/replace/bin.cpp \
+src/replace/charge.cpp \
+src/replace/fft.cpp \
+src/replace/gcell.cpp \
+src/replace/initPlacement.cpp \
+src/replace/macro.cpp \
+src/replace/ns.cpp \
+src/replace/opt.cpp \
+src/replace/replace_private.cpp \
+src/replace/Replace.cpp \
+src/replace/wlen.cpp \
+src/replace/util.cpp \
+src/replace/argument.cpp \
+src/replace/bookShelfIO.cpp \
+src/replace/defParser.cpp \
+src/replace/detailPlace.cpp \
+src/replace/fft.cpp \
+src/replace/fftsg.cpp \
+src/replace/fftsg2d.cpp \
+src/replace/fftsg3d.cpp \
+src/replace/lefdefIO.cpp \
+src/replace/lefParser.cpp \
+src/replace/plot.cpp \
+src/replace/replace_external.cpp \
+src/replace/routeOpt.cpp \
+src/replace/tier.cpp \
+src/replace/timing.cpp \
+src/replace/timingSta.cpp \
+src/replace/trial.cpp \
+src/replace/simplePlacer.cpp

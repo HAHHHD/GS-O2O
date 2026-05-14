@@ -1,0 +1,47 @@
+# Python environments and caches
+.venv/
+.uv-cache/
+__pycache__/
+*/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+
+# Local OS/editor noise
+.DS_Store
+*.swp
+*.swo
+
+# ABC / local runtime noise
+abc.history
+
+# Generated datasets and caches
+data/
+data_*/
+
+# Generated checkpoints
+models/checkpoints/
+models/checkpoints_*/
+
+# Generated results, logs, and evaluation tables
+results/
+results_*/
+
+# Temporary workspaces and intermediate netlists
+work/
+work_*/
+
+# Paper build noise
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.pdfsync
+paper/*.synctex.gz
+paper/assets/.mplcache/
+

@@ -1,0 +1,169 @@
+{
+  "abc_binary": "../build2/abc",
+  "ablation": {
+    "d1_greedy_only": false,
+    "immediate_reward_only": false,
+    "no_near_greedy_filter": false,
+    "no_uncertainty": false
+  },
+  "actions": [
+    {
+      "abc_cmd": "rewrite",
+      "name": "rewrite"
+    },
+    {
+      "abc_cmd": "rewrite -z",
+      "name": "rewrite_z"
+    },
+    {
+      "abc_cmd": "balance",
+      "name": "balance"
+    },
+    {
+      "abc_cmd": "refactor",
+      "name": "refactor"
+    },
+    {
+      "abc_cmd": "refactor -z",
+      "name": "refactor_z"
+    },
+    {
+      "abc_cmd": "resub",
+      "name": "resub"
+    },
+    {
+      "abc_cmd": "resub -z",
+      "name": "resub_z"
+    },
+    {
+      "abc_cmd": "replace;rw -p -q",
+      "name": "replace_rw_p_q"
+    },
+    {
+      "abc_cmd": "replace;rf -p",
+      "name": "replace_rf_p"
+    }
+  ],
+  "awac": {
+    "lambda": 1.0
+  },
+  "benchmark_root": "benchmarks/comb45",
+  "cql": {
+    "alpha": 1.0
+  },
+  "data_dir": "data_comb45_h20_op9",
+  "evaluation": {
+    "deterministic": true
+  },
+  "experiment": {
+    "budgets": [
+      0,
+      10,
+      50
+    ],
+    "include_train_round_budgets": true,
+    "methods": [
+      "gso2o",
+      "awac",
+      "iql",
+      "cql"
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "gamma": 1.0,
+  "horizon": 20,
+  "hpwl_flow_template": "scripts/abc_hpwl_flow.tcl",
+  "hpwl_mode": "and_nf_put_replace",
+  "iql": {
+    "beta": 3.0,
+    "expectile": 0.7
+  },
+  "mapping_lib": "../asap7_clean.lib",
+  "model": {
+    "activation": "leaky_relu",
+    "ensemble_size": 5,
+    "feature_dim": 15,
+    "hidden_dim": 256,
+    "num_layers": 2
+  },
+  "models_dir": "models/checkpoints_comb45_h20_op9",
+  "offline": {
+    "batch_size": 32,
+    "huber_delta": 1.0,
+    "loss": "huber",
+    "lr": 0.0003,
+    "q_epochs": 1000,
+    "reward_epochs": 1000,
+    "use_normalized_targets": true,
+    "value_epochs": 2000
+  },
+  "online": {
+    "beta_end": 0.2,
+    "beta_start": 1.0,
+    "episodes": 192,
+    "epsilon_end": 0.05,
+    "epsilon_start": 0.3,
+    "lambda_online": 0.5,
+    "rho": 0.01,
+    "update_epochs_per_episode": 5,
+    "update_reward_model": false
+  },
+  "result_dir": "results_comb45_h20_op9",
+  "seed": 0,
+  "test_circuits": [
+    "c1355",
+    "c3540",
+    "c7552",
+    "apex7",
+    "cm138a",
+    "cm163a",
+    "decod",
+    "des",
+    "pair",
+    "parity",
+    "pm1",
+    "t481",
+    "vda"
+  ],
+  "train_circuits": [
+    "c432",
+    "c499",
+    "c880",
+    "c1908",
+    "c2670",
+    "c5315",
+    "c6288",
+    "alu2",
+    "alu4",
+    "apex6",
+    "c8",
+    "cc",
+    "cht",
+    "cm150a",
+    "cm151a",
+    "cm152a",
+    "cm162a",
+    "cmb",
+    "comp",
+    "cordic",
+    "count",
+    "cu",
+    "dalu",
+    "frg1",
+    "frg2",
+    "k2",
+    "lal",
+    "pcler8",
+    "rot",
+    "tcon",
+    "term1",
+    "z4ml"
+  ],
+  "work_dir": "work_comb45_h20_op9"
+}
